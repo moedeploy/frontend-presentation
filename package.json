@@ -1,0 +1,7 @@
+"scripts": {
+
+    "start": "node testScript.js"
+  
+  },
+  
+  "main": "testScript.js"
