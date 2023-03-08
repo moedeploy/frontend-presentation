@@ -1,16 +1,14 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+const bodyParser = require('body-parser');
 
-const server = http.createServer((req, res) => {
-  const data = {
-    message: 'Hello World!',
-    timestamp: Date.now()
-  };
-  
-  res.writeHead(200, { 'Content-Type': 'application/json' });
-  res.write(JSON.stringify(data));
-  res.end();
+app.use(bodyParser.json());
+
+app.post('/', (req, res) => {
+  console.log(req.body);
+  res.send('Data received!');
 });
 
-server.listen(3000, () => {
-  console.log('Server started on port 3000');
+app.listen(8080, () => {
+  console.log('Server listening on port 8080');
 });
